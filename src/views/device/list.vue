@@ -464,13 +464,13 @@ export default {
     },
 
     showCostDialog(row) {
-      // if(row.status !== "AVAILABLE") {
-      //   this.$message.warning({
-      //     message: "设备当前不可借用",
-      //     duration: 2 * 1000
-      //   })
-      //   return
-      // }
+      if(row.status !== "DAMAGED") {
+        this.$message.warning({
+          message: "设备当前不可购买",
+          duration: 2 * 1000
+        })
+        return
+      }
       this.applyForm.device.deviceId = row.deviceId
       this.costDialogVisible = true
     },
